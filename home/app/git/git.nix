@@ -1,7 +1,11 @@
 { config, pkgs, ... }:
 
 {
-  home.packages = [ pkgs.git ];
+  home.packages = with pkgs; [ 
+    git
+    gh 
+  ];
+
   programs.git.enable = true;
   programs.git.userName = "ecomex";
   programs.git.userEmail = "skoch@sks-concept.de";

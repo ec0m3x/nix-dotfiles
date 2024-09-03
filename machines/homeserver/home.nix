@@ -14,11 +14,11 @@
 
   home.stateVersion = "24.05"; # Please read the comment before changing.
 
-  home.packages = (with pkgs; [
+  home.packages = with pkgs; [
     # Core
     zsh
     git
-
+  ];
   news.display = "silent";
 
   # Let Home Manager install and manage itself.
