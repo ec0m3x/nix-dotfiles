@@ -12,9 +12,10 @@
       #../../system/security/tailscale.nix
     ];
 
-  # Bootloader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
+  # Bootloader
+  boot.loader.grub.enable = true;
+  boot.loader.grub.useOSProber = true;
+
 
   networking.hostName = "nixos-server";
 
@@ -77,7 +78,7 @@
 
   # Enable the OpenSSH server.
   services.openssh.enable = true;
-  
+
   fonts.fontDir.enable = true;
 
   nix.settings.auto-optimise-store = true;
