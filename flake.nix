@@ -22,9 +22,19 @@
         machine = "desktop";
       };
       
-      lib = inputs.nixpkgs.lib;
+      lib = (if ((systemSettings.machine == "homeserver"))
+        then
+          inputs.nixpkgs-stable.lib
+        else
+          inputs.nixpkgs.lib);
 
-      pkgs = import inputs.nixpkgs {
+      pkgs = (if ((systemSettings.profile == "homelab") || (systemSettings.profile == "worklab"))
+              then
+                pkgs-stable
+              else
+                pkgs-unstable);
+
+      pkgs-unstable = import inputs.nixpkgs {
         system = systemSettings.system;
         config = {
           allowUnfree = true;
@@ -39,7 +49,11 @@
         };
       };
 
-      home-manager = inputs.home-manager;
+      home-manager = (if ((systemSettings.machine == "homeserver"))
+             then
+               inputs.home-manager-stable
+             else
+               inputs.home-manager-unstable);
 
       # --- User Settings --- #
       userSettings = rec {
