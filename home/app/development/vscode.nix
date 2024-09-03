@@ -13,6 +13,7 @@
       "git.enableSmartCommit" = true;
       "git.confirmSync" = false;
       "workbench.startupEditor" = "none";
+      "git.autofetch" =  true;
     };
   };
 

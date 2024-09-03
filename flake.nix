@@ -17,22 +17,28 @@
   outputs = {self, ... }@inputs:
   let
       # --- System Settings --- #
+      systemSettings = {
+        system = "x86_64-linux";
+        machine = "desktop";
+      };
+      
       lib = inputs.nixpkgs.lib;
-      system = "x86_64-linux";
+
       pkgs = import inputs.nixpkgs {
-        inherit system;
+        system = systemSettings.system;
         config = {
           allowUnfree = true;
           allowUnfreePredicate = (_: true);
         };
       };
       pkgs-stable = import inputs.nixpkgs-stable {
-        inherit system;
+        system = systemSettings.system;
         config = {
           allowUnfree = true;
           allowUnfreePredicate = (_: true);
         };
       };
+
       home-manager = inputs.home-manager;
 
       # --- User Settings --- #
@@ -50,39 +56,30 @@
   in {
 
     nixosConfigurations = {
-      nixos-desktop = lib.nixosSystem {
-        inherit system;
-        modules = [ 
-          ./machines/desktop/configuration.nix
+      system = lib.nixosSystem {
+        system = systemSettings.system;
+        modules = [
+          (./. + "/machines" + ("/" + systemSettings.machine) + "/configuration.nix")
         ];
         specialArgs = {
           inherit inputs;
           inherit pkgs-stable;
-          inherit userSettings;
-        };
-      };
-      nixos-server = lib.nixosSystem {
-        inherit system;
-        modules = [ 
-          ./machines/homeserver/configuration.nix
-        ];
-        specialArgs = {
-          inherit inputs;
-          inherit pkgs-stable;
+          inherit systemSettings;
           inherit userSettings;
         };
       };
     };
 
     homeConfigurations = {
-      ecomex = home-manager.lib.homeManagerConfiguration {
+      user = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
         modules = [ 
-          ./machines/desktop/home.nix
+          (./. + "/machines" + ("/" + systemSettings.machine) + "/home.nix")
         ];
         extraSpecialArgs = {
           inherit inputs;
           inherit pkgs-stable;
+          inherit systemSettings;
           inherit userSettings;
         };
       };
