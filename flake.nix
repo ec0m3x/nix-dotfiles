@@ -20,7 +20,10 @@
       systemSettings = {
         system = "x86_64-linux";
         machine = "homeserver";
-        grubDevice = "/dev/vda";
+        bootMode = "uefi"; # uefi or bios
+        bootMountPath = "/boot"; # mount path for efi boot partition; only used for uefi boot mode
+        grubDevice = ""; # device identifier for grub; only used for legacy (bios) boot mode
+
       };
       
       lib = (if ((systemSettings.machine == "homeserver"))
