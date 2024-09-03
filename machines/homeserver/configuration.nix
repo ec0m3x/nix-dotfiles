@@ -9,7 +9,7 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ../../system/hardware/zram.nix
-      #../../system/security/tailscale.nix
+      ../../system/security/tailscale.nix
     ];
 
   # Bootloader
@@ -68,6 +68,11 @@
     nh
     nix-output-monitor
     nvd
+    rclone
+    rdiff-backup
+    rsnapshot
+    cryptsetup
+    gocryptfs
   ];
 
   environment.sessionVariables = {
