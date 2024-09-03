@@ -10,6 +10,7 @@
       ./hardware-configuration.nix
       ../../system/hardware/zram.nix
       ../../system/security/tailscale.nix
+      ../../system/security/gpg.nix
     ];
 
   # Bootloader
