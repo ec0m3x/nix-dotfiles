@@ -20,6 +20,7 @@
       systemSettings = {
         system = "x86_64-linux";
         machine = "desktop";
+        grubDevice = "";
       };
       
       lib = (if ((systemSettings.machine == "homeserver"))
@@ -28,7 +29,7 @@
         else
           inputs.nixpkgs.lib);
 
-      pkgs = (if ((systemSettings.profile == "homelab") || (systemSettings.profile == "worklab"))
+      pkgs = (if ((systemSettings.profile == "homelab"))
               then
                 pkgs-stable
               else

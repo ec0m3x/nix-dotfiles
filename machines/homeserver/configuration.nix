@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{ config, pkgs, systemSettings, ... }:
 
 {
   imports =
@@ -15,7 +15,7 @@
   # Bootloader
   boot.loader.grub.enable = true;
   boot.loader.grub.useOSProber = true;
-
+  boot.loader.grub.device = systemSettings.grubDevice;
 
   networking.hostName = "nixos-server";
 
