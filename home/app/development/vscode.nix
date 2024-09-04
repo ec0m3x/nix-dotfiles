@@ -14,6 +14,7 @@
       "git.confirmSync" = false;
       "workbench.startupEditor" = "none";
       "git.autofetch" =  true;
+      "remote.SSH.configFile" = "/home/ecomex/.ssh/vs-code-config";
     };
   };
 
