@@ -5,7 +5,6 @@
     [ ../../home/shell/sh.nix
       ../../home/shell/cli-collection.nix
       ../../home/app/git/git.nix
-      ../../home/server/nextcloud.nix
     ];
 
   # Home Manager needs a bit of information about you and the paths it should

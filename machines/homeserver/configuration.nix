@@ -11,6 +11,7 @@
       ../../system/hardware/zram.nix
       ../../system/security/tailscale.nix
       ../../system/security/gpg.nix
+      ../../system/server/nextcloud.nix
     ];
 
   # Bootloader
