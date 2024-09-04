@@ -88,6 +88,12 @@
   # Enable the OpenSSH server.
   services.openssh.enable = true;
 
+
+
+
+
+
+
   fonts.fontDir.enable = true;
 
   nix.settings.auto-optimise-store = true;
