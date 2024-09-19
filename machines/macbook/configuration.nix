@@ -1,6 +1,11 @@
 { self, config, pkgs, ... }:
 
 {
+
+  imports =
+    [ ../../system/security/tailscale.nix
+    ];
+
   environment.systemPackages = with pkgs;
     [ vim
       vscode
