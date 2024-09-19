@@ -7,6 +7,9 @@
 
     stylix.url = "github:danth/stylix";
 
+    nix-darwin.url = "github:LnL7/nix-darwin";
+    nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
+
     home-manager-stable.url = "github:nix-community/home-manager/release-24.05";
     home-manager-stable.inputs.nixpkgs.follows = "nixpkgs-stable";
     
@@ -14,12 +17,12 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = {self, ... }@inputs:
+  outputs = {self, nix-darwin, nixpkgs, home-manager, ... }@inputs:
   let
       # --- System Settings --- #
       systemSettings = {
         system = "x86_64-linux";
-        machine = "homeserver";
+        machine = "macbook";
         bootMode = "uefi"; # uefi or bios
         bootMountPath = "/boot"; # mount path for efi boot partition; only used for uefi boot mode
         grubDevice = ""; # device identifier for grub; only used for legacy (bios) boot mode
@@ -78,6 +81,14 @@
         system = systemSettings.system;
         modules = [
           (./. + "/machines" + ("/" + systemSettings.machine) + "/configuration.nix")
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users.ecomex = import (./. + "/machines" + ("/" + systemSettings.machine) + "/home.nix");
+
+            # Optionally, use home-manager.extraSpecialArgs to pass
+            # arguments to home.nix
+          }
         ];
         specialArgs = {
           inherit inputs;
@@ -87,20 +98,19 @@
         };
       };
     };
+    darwinConfigurations."MacBook" = nix-darwin.lib.darwinSystem {
+      modules = [ 
+	      (./. + "/machines" + ("/" + systemSettings.machine) + "/configuration.nix")
+        home-manager.darwinModules.home-manager
+        {
+          home-manager.useGlobalPkgs = true;
+          home-manager.useUserPackages = true;
+          home-manager.users.ecomex = import (./. + "/machines" + ("/" + systemSettings.machine) + "/home.nix");
 
-    homeConfigurations = {
-      user = home-manager.lib.homeManagerConfiguration {
-        inherit pkgs;
-        modules = [ 
-          (./. + "/machines" + ("/" + systemSettings.machine) + "/home.nix")
-        ];
-        extraSpecialArgs = {
-          inherit inputs;
-          inherit pkgs-stable;
-          inherit systemSettings;
-          inherit userSettings;
-        };
-      };
+          # Optionally, use home-manager.extraSpecialArgs to pass
+          # arguments to home.nix
+        } 
+      ];
     };
   };
 }
