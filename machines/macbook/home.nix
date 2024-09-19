@@ -3,6 +3,7 @@
 {
   imports =
     [ ../../home/shell/sh.nix
+      ../../home/app/git/git.nix
     ];
 
   # This value determines the Home Manager release that your

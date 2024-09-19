@@ -60,7 +60,7 @@
              then
                inputs.home-manager-stable
              else
-               inputs.home-manager-unstable);
+               inputs.home-manager);
 
       # --- User Settings --- #
       userSettings = rec {
@@ -111,6 +111,15 @@
           # arguments to home.nix
         } 
       ];
+      specialArgs = {
+        inherit self;
+        inherit inputs;
+        inherit pkgs-stable;
+        inherit systemSettings;
+        inherit userSettings;
+      };
     };
+    # Expose the package set, including overlays, for convenience.
+    darwinPackages = self.darwinConfigurations."MacBook".pkgs;
   };
 }
