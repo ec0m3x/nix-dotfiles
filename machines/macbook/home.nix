@@ -5,7 +5,7 @@
     [ ../../home/shell/sh.nix
       ../../home/app/git/git.nix
       ../../home/app/terminal/wezterm/wezterm.nix
-      ../../home/app/terminal/alacritty.nix
+      ../../home/app/terminal/alacritty/alacritty.nix
       ../../home/shell/darwin-cli-collection.nix
     ];
 
