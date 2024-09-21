@@ -4,6 +4,9 @@
   imports =
     [ ../../home/shell/sh.nix
       ../../home/app/git/git.nix
+      ../../home/app/terminal/wezterm/wezterm.nix
+      ../../home/app/terminal/alacritty.nix
+      ../../home/shell/darwin-cli-collection.nix
     ];
 
   # This value determines the Home Manager release that your
@@ -15,7 +18,6 @@
   # the Home Manager release notes for a list of state version
   # changes in each release.
   home.stateVersion = "24.05";
-
 
   home.packages = with pkgs; [
     obsidian

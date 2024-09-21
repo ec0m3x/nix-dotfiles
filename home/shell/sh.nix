@@ -5,8 +5,9 @@ let
     ll = "eza --icons=auto -la";
     ls = "eza --icons=auto";
     ".." =  "cd ..";
-    full-rebuild = "sudo nixos-rebuild switch --flake ~/dotfiles/ && home-manager switch --flake ~/dotfiles/";
-    full-clean = "sudo nix-collect-garbage --delete-old && nix-collect-garbage --delete-old";
+    nixos-full-rebuild = "sudo nixos-rebuild switch --flake ~/dotfiles/ && home-manager switch --flake ~/dotfiles/";
+    nixos-full-clean = "sudo nix-collect-garbage --delete-old && nix-collect-garbage --delete-old";
+    darwin-rebuild = "cd ~/.dotfiles/ && darwin-rebuild switch --flake .#MacBook";
   };
 in
 
@@ -28,5 +29,11 @@ in
       enable = true;
       shellAliases = myAliases;
     };
+    bat.enable = true;
+    fzf = {
+      enable = true;
+      enableZshIntegration = true;
+    };
+    eza.enable = true;
   };
 }

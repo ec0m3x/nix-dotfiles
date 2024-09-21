@@ -7,5 +7,7 @@
   programs.alacritty.enable = true;
   programs.alacritty.settings = {
     window.opacity = lib.mkForce 0.75;
+    font.normal.family = "MesloLGS Nerd Font Mono";
+    font.size = 14;
   };
 }

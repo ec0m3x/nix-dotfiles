@@ -21,6 +21,18 @@
   # Create /etc/zshrc that loads the nix-darwin environment.
   programs.zsh.enable = true;  # default shell on catalina
   # programs.fish.enable = true;
+  system.defaults = {
+    finder.AppleShowAllExtensions = true;
+    finder._FXShowPosixPathInTitle = true;
+    dock.autohide = false;
+    NSGlobalDomain.AppleShowAllExtensions = true;
+    NSGlobalDomain.InitialKeyRepeat = 14;
+    NSGlobalDomain.KeyRepeat = 1;
+  };
+
+  fonts.packages = [ (pkgs.nerdfonts.override { fonts = [ "Meslo" ]; }) ];
+
+
 
   # Set Git commit hash for darwin-version.
   system.configurationRevision = self.rev or self.dirtyRev or null;
@@ -46,6 +58,14 @@
   homebrew.enable = true;
   homebrew.casks = [
     "google-chrome"
+    "moonlight"
+    "zotero"
+    "microsoft-teams"
+    "discord"
+    "appcleaner"
+    "spotify"
+    "wezterm"
+    "nextcloud"
   ];
   
   homebrew.brews = [    

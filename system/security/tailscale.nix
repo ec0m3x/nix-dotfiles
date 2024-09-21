@@ -5,7 +5,7 @@
   services.tailscale = {
     enable = true;
     package = pkgs.tailscale;
-    useRoutingFeatures = "both";
+    #useRoutingFeatures = "both";
     #authKeyFile = "/home/ecomex/.tailscale/auth-key";
   };
 }
