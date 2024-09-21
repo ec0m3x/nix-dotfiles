@@ -66,6 +66,7 @@
     "spotify"
     "wezterm"
     "nextcloud"
+    "alacritty"
   ];
   
   homebrew.brews = [    

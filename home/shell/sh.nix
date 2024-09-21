@@ -2,12 +2,13 @@
 
 let
   myAliases = {
-    ll = "eza --icons=auto -la";
-    ls = "eza --icons=auto";
+    ll = "eza --icons=auto --color=always -la";
+    ls = "eza --icons=auto --color=always ";
     ".." =  "cd ..";
+    reload-zsh = "source ~/.zshrc";
     nixos-full-rebuild = "sudo nixos-rebuild switch --flake ~/dotfiles/ && home-manager switch --flake ~/dotfiles/";
     nixos-full-clean = "sudo nix-collect-garbage --delete-old && nix-collect-garbage --delete-old";
-    darwin-rebuild = "cd ~/.dotfiles/ && darwin-rebuild switch --flake .#MacBook";
+    darwin-rebuild-full = "cd ~/.dotfiles/ && darwin-rebuild switch --flake .#MacBook";
   };
 in
 
@@ -18,11 +19,12 @@ in
       shellAliases = myAliases;
       syntaxHighlighting.enable = true;
       enableCompletion = true;
+      autosuggestion.enable = true;
       history.size = 100000;
       oh-my-zsh = {
         enable = true;
         plugins = [ "extract" "git" "sudo" ];
-        theme = "dst";
+        theme = "fino";
       };
     };
     bash = {
