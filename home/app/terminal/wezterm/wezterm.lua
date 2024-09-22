@@ -20,13 +20,13 @@ config.colors = {
 }
 
 config.font = wezterm.font("MesloLGS Nerd Font Mono")
-config.font_size = 14
+config.font_size = 16
 
-config.enable_tab_bar = true
-config.use_ime = false
-config.window_decorations = "TITLE | RESIZE"
+config.enable_tab_bar = false
+config.window_decorations = "RESIZE"
 config.window_background_opacity = 0.75
 config.macos_window_background_blur = 10
 
+config.window_close_confirmation = "NeverPrompt"
 -- and finally, return the configuration to wezterm
 return config

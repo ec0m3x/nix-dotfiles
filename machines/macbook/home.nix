@@ -6,6 +6,7 @@
       ../../home/app/git/git.nix
       ../../home/app/terminal/wezterm/wezterm.nix
       ../../home/app/terminal/alacritty/alacritty.nix
+      ../../home/app/terminal/starship/starship.nix
       ../../home/shell/darwin-cli-collection.nix
     ];
 

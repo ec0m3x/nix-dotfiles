@@ -21,11 +21,11 @@ in
       enableCompletion = true;
       autosuggestion.enable = true;
       history.size = 100000;
-      oh-my-zsh = {
+/*       oh-my-zsh = {
         enable = true;
         plugins = [ "extract" "git" "sudo" ];
         theme = "fino";
-      };
+      }; */
     };
     bash = {
       enable = true;

@@ -2,7 +2,9 @@
 
 {
   programs.alacritty.enable = true;
-  programs.alacritty.settings = {
+  home.file.".config/alacritty/alacritty.toml".source = ./alacritty.toml;
+  
+/*   programs.alacritty.settings = {
     window = {
       opacity = lib.mkForce 0.75;
       padding = {
@@ -14,5 +16,5 @@
     };
     font.normal.family = "MesloLGS Nerd Font Mono";
     font.size = 14;
-  };
+  }; */
 }
