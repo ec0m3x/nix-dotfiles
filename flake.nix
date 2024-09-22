@@ -81,14 +81,15 @@
         system = systemSettings.system;
         modules = [
           (./. + "/machines" + ("/" + systemSettings.machine) + "/configuration.nix")
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.users.ecomex = import (./. + "/machines" + ("/" + systemSettings.machine) + "/home.nix");
+          home-manager.nixosModules.home-manager
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.users.ecomex = import (./. + "/machines" + ("/" + systemSettings.machine) + "/home.nix");
 
-            # Optionally, use home-manager.extraSpecialArgs to pass
-            # arguments to home.nix
-          }
+              # Optionally, use home-manager.extraSpecialArgs to pass
+              # arguments to home.nix
+            }
         ];
         specialArgs = {
           inherit inputs;
