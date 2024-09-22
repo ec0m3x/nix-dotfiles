@@ -22,7 +22,7 @@
       # --- System Settings --- #
       systemSettings = {
         system = "x86_64-linux";
-        machine = "macbook";
+        machine = "macbook"; #choose desktop, macbook or homeserver
         bootMode = "uefi"; # uefi or bios
         bootMountPath = "/boot"; # mount path for efi boot partition; only used for uefi boot mode
         grubDevice = ""; # device identifier for grub; only used for legacy (bios) boot mode
@@ -77,7 +77,7 @@
   in {
 
     nixosConfigurations = {
-      system = lib.nixosSystem {
+      nixos-desktop = lib.nixosSystem {
         system = systemSettings.system;
         modules = [
           (./. + "/machines" + ("/" + systemSettings.machine) + "/configuration.nix")
