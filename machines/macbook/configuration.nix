@@ -24,7 +24,9 @@
   system.defaults = {
     finder.AppleShowAllExtensions = true;
     finder._FXShowPosixPathInTitle = true;
-    dock.autohide = false;
+    dock.autohide = true;
+    dock.autohide-time-modifier = 2.0;
+    dock.orientation = "right";
     NSGlobalDomain.AppleShowAllExtensions = true;
     NSGlobalDomain.InitialKeyRepeat = 14;
     NSGlobalDomain.KeyRepeat = 1;
@@ -67,8 +69,10 @@
     "wezterm"
     "nextcloud"
     "alacritty"
+    "background-music"
   ];
   
-  homebrew.brews = [    
+  homebrew.brews = [
+    "cava"    
   ];
 }

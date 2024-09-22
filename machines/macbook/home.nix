@@ -7,6 +7,7 @@
       ../../home/app/terminal/wezterm/wezterm.nix
       ../../home/app/terminal/alacritty/alacritty.nix
       ../../home/app/terminal/starship/starship.nix
+      #../../home/app/terminal/cava.nix
       ../../home/shell/darwin-cli-collection.nix
     ];
 
