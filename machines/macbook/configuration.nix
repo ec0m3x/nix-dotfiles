@@ -24,7 +24,7 @@
   system.defaults = {
     finder.AppleShowAllExtensions = true;
     finder._FXShowPosixPathInTitle = true;
-    dock.autohide = true;
+    dock.autohide = false;
     dock.autohide-time-modifier = 2.0;
     dock.orientation = "right";
     NSGlobalDomain.AppleShowAllExtensions = true;
@@ -70,6 +70,7 @@
     "nextcloud"
     "alacritty"
     "background-music"
+    "minecraft"
   ];
   
   homebrew.brews = [
