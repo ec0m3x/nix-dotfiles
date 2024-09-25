@@ -7,7 +7,7 @@
 {
   imports =
     [ # Include the results of the hardware scan.
-      /etc/nixos/hardware-configuration.nix
+      ./hardware-configuration.nix
       ../../system/hardware/bluetooth.nix
       ../../system/hardware/zram.nix
       ../../system/hardware/graphics.nix

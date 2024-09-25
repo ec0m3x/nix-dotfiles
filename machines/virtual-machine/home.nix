@@ -3,15 +3,15 @@
 {
   imports =
     [ ../../home/shell/sh.nix
-      ../../home/wm/hyprland/hyprland.nix
-      ../../home/hardware/bluetooth.nix
+      #../../home/wm/hyprland/hyprland.nix
+      #../../home/hardware/bluetooth.nix
       ../../home/shell/cli-collection.nix
-      ../../home/style/stylix.nix
+      #../../home/style/stylix.nix
       ../../home/app/git/git.nix
       ../../home/app/development/vscode.nix
-      ../../home/app/flatpak/flatpak.nix
-      ../../home/app/cloud/nextcloud-client.nix
-      ../../home/app/games/games.nix
+      #../../home/app/flatpak/flatpak.nix
+      #../../home/app/cloud/nextcloud-client.nix
+      #../../home/app/games/games.nix
       #../../home/app/virtualisation/virtualisation.nix
       (./. + "../../../home/app/browser"+("/"+userSettings.browser)+".nix")
     ];

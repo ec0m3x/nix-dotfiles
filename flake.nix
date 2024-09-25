@@ -98,6 +98,27 @@
           inherit userSettings;
         };
       };
+      nixos-vm = lib.nixosSystem {
+        system = systemSettings.system;
+        modules = [
+          ./machines/virtual-machine/configuration.nix
+          home-manager.nixosModules.home-manager
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.users.ecomex = import ./machines/virtual-machine/home.nix;
+
+              # Optionally, use home-manager.extraSpecialArgs to pass
+              # arguments to home.nix
+            }
+        ];
+        specialArgs = {
+          inherit inputs;
+          inherit pkgs-stable;
+          inherit systemSettings;
+          inherit userSettings;
+        };
+      };
     };
     darwinConfigurations."MacBook" = nix-darwin.lib.darwinSystem {
       modules = [ 
