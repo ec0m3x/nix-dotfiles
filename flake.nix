@@ -80,12 +80,12 @@
       nixos-desktop = lib.nixosSystem {
         system = systemSettings.system;
         modules = [
-          (./. + "/machines" + ("/" + systemSettings.machine) + "/configuration.nix")
+          ./machines/desktop/configuration.nix
           home-manager.nixosModules.home-manager
             {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
-              home-manager.users.ecomex = import (./. + "/machines" + ("/" + systemSettings.machine) + "/home.nix");
+              home-manager.users.ecomex = import ./machines/desktop/home.nix;
 
               # Optionally, use home-manager.extraSpecialArgs to pass
               # arguments to home.nix
