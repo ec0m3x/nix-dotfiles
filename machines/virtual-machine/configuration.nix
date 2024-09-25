@@ -17,6 +17,7 @@
       #../../system/hardware/openrgb.nix
       #../../system/hardware/power.nix
       ../../system/wm/plasma.nix
+      ../../system/app/sunshine.nix
       #../../system/wm/pipewire.nix
       #../../system/app/virtualisation.nix
       #../../system/app/gaming.nix
