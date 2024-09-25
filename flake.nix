@@ -110,6 +110,12 @@
 
               # Optionally, use home-manager.extraSpecialArgs to pass
               # arguments to home.nix
+	      home-manager.extraSpecialArgs = {
+		inherit inputs;
+		inherit pkgs-stable;
+		inherit systemSettings;
+		inherit userSettings;
+	      };
             }
         ];
         specialArgs = {

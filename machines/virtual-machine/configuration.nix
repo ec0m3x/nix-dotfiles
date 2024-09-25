@@ -31,7 +31,7 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "nixos-desktop";
+  networking.hostName = "nixos-vm";
 
   # Enable networking
   networking.networkmanager.enable = true;
