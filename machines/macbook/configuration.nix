@@ -69,11 +69,10 @@
     "wezterm"
     "nextcloud"
     "alacritty"
-    "background-music"
     "minecraft"
   ];
   
   homebrew.brews = [
-    "cava"    
+    
   ];
 }
