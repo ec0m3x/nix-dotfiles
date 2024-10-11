@@ -22,7 +22,7 @@
       # --- System Settings --- #
       systemSettings = {
         system = "x86_64-linux";
-        machine = "macbook"; #choose desktop, macbook or homeserver
+        machine = "desktop"; #choose desktop, macbook or homeserver
         bootMode = "uefi"; # uefi or bios
         bootMountPath = "/boot"; # mount path for efi boot partition; only used for uefi boot mode
         grubDevice = ""; # device identifier for grub; only used for legacy (bios) boot mode
@@ -86,6 +86,7 @@
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
               home-manager.users.ecomex = import ./machines/desktop/home.nix;
+              home-manager.backupFileExtension = "hm-backup";
 
               # Optionally, use home-manager.extraSpecialArgs to pass
               # arguments to home.nix

@@ -2,7 +2,7 @@
 {
 
   # Enable OpenGL
-  hardware.opengl = {
+  hardware.graphics = {
     enable = true;
   };
 
@@ -39,5 +39,11 @@
 
     # Optionally, you may need to select the appropriate driver version for your specific GPU.
     package = config.boot.kernelPackages.nvidiaPackages.stable;
+
+    # PRIME
+    prime = {
+      amdgpuBusId = "PCI:30:0:0";
+      nvidiaBusId = "PCI:10:0:0";
+    };
   };
 }

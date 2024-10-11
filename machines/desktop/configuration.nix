@@ -14,17 +14,18 @@
       ../../system/hardware/xbox-controller.nix
       ../../system/hardware/kernel.nix
       ../../system/hardware/printing.nix
-      ../../system/hardware/openrgb.nix
+      #../../system/hardware/openrgb.nix
       #../../system/hardware/power.nix
       #../../system/wm/plasma.nix
+      ../../system/wm/gnome.nix
       ../../system/wm/pipewire.nix
       #../../system/app/virtualisation.nix
       ../../system/app/gaming.nix
-      ../../system/app/flatpak.nix
-      ../../system/security/gpg.nix
+      #../../system/app/flatpak.nix
+      #../../system/security/gpg.nix
       ../../system/security/automount.nix
       ../../system/security/tailscale.nix
-      ../../system/style/stylix.nix
+      #../../system/style/stylix.nix
     ];
 
   # Bootloader.
