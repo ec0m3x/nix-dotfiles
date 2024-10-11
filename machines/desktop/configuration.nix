@@ -10,7 +10,7 @@
       ./hardware-configuration.nix
       ../../system/hardware/bluetooth.nix
       ../../system/hardware/zram.nix
-      ../../system/hardware/graphics.nix
+      ../../system/hardware/nvidia.nix
       ../../system/hardware/xbox-controller.nix
       ../../system/hardware/kernel.nix
       ../../system/hardware/printing.nix
