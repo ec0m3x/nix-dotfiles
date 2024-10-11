@@ -4,6 +4,7 @@
   imports =
     [ ../../home/shell/sh.nix
       #../../home/wm/hyprland/hyprland.nix
+      ../../home/wm/gnome/gnome.nix
       ../../home/hardware/bluetooth.nix
       ../../home/shell/cli-collection.nix
       #../../home/style/stylix.nix

@@ -67,7 +67,7 @@
         username = "ecomex"; # Your username;
         name = "Sebastian"; # Your name;
         email = "skoch@sks-concept.de"; # Your email;
-        browser = "firefox"; # Default browser command;
+        browser = "brave"; # Default browser command;
         term = "alacritty"; # Default terminal command;
         theme = "horizon-dark"; # Default theme;
         font = "Intel One Mono"; # Default font;
