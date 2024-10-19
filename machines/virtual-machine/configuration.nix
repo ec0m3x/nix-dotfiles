@@ -8,32 +8,17 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      #../../system/hardware/bluetooth.nix
-      #../../system/hardware/zram.nix
-      #../../system/hardware/graphics.nix
-      #../../system/hardware/xbox-controller.nix
-      #../../system/hardware/kernel.nix
-      #../../system/hardware/printing.nix
-      #../../system/hardware/openrgb.nix
-      #../../system/hardware/power.nix
-      ../../system/wm/plasma.nix
-      ../../system/app/sunshine.nix
+      ../../system/hardware/nvidia-stable.nix
       ../../system/vfio/vfio.nix
-      #../../system/wm/pipewire.nix
-      #../../system/app/virtualisation.nix
-      #../../system/app/gaming.nix
-      #../../system/app/flatpak.nix
-      #../../system/security/gpg.nix
-      #../../system/security/automount.nix
-      #../../system/security/tailscale.nix
-      #../../system/style/stylix.nix
+      ../../system/vfio/guest-agent.nix
+      ../../system/server/openssh.nix
     ];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "nixos-vm";
+  networking.hostName = "nixos-local-AI";
 
   # Enable networking
   networking.networkmanager.enable = true;
@@ -63,7 +48,7 @@
     isNormalUser = true;
     description = "ecomex";
     initialPassword = "geheim";
-    extraGroups = [ "networkmanager" "wheel" "input" "dialout" "libvirtd" "kvm" "gamemode"];
+    extraGroups = [ "networkmanager" "wheel" "input" "dialout" ];
     packages = with pkgs; [];
   };
 
