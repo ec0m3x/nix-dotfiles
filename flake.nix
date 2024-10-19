@@ -114,6 +114,7 @@
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
               home-manager.users.ecomex = import ./machines/virtual-machine/home.nix;
+              home-manager.backupFileExtension = "hm-backup";
 
               # Optionally, use home-manager.extraSpecialArgs to pass
               # arguments to home.nix
@@ -135,12 +136,13 @@
     };
     darwinConfigurations."MacBook" = nix-darwin.lib.darwinSystem {
       modules = [ 
-	      (./. + "/machines" + ("/" + systemSettings.machine) + "/configuration.nix")
+	      ./machines/macbook/configuration.nix
         home-manager.darwinModules.home-manager
         {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
-          home-manager.users.ecomex = import (./. + "/machines" + ("/" + systemSettings.machine) + "/home.nix");
+          home-manager.users.ecomex = import ./machines/macbook/home.nix;
+          home-manager.backupFileExtension = "hm-backup";
 
           # Optionally, use home-manager.extraSpecialArgs to pass
           # arguments to home.nix

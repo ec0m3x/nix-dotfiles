@@ -8,7 +8,7 @@
 
   environment.systemPackages = with pkgs;
     [ vim
-      vscode
+      #vscode
     ];
 
   # Auto upgrade nix package and the daemon service.
@@ -26,7 +26,7 @@
     finder._FXShowPosixPathInTitle = true;
     dock.autohide = false;
     dock.autohide-time-modifier = 2.0;
-    dock.orientation = "right";
+    dock.orientation = "left";
     NSGlobalDomain.AppleShowAllExtensions = true;
     NSGlobalDomain.InitialKeyRepeat = 14;
     NSGlobalDomain.KeyRepeat = 1;
@@ -70,9 +70,11 @@
     "nextcloud"
     "alacritty"
     "minecraft"
+    "brave-browser"
+    "steam"
+    "parsec"
   ];
   
   homebrew.brews = [
-    
   ];
 }

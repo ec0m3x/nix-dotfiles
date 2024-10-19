@@ -3,7 +3,6 @@
 {
   programs.vscode = {
     enable = true;
-    package = pkgs.vscode;
     enableUpdateCheck = false;
     userSettings = {
       "files.autoSave" = "onFocusChange";
@@ -14,7 +13,8 @@
       "git.confirmSync" = false;
       "workbench.startupEditor" = "none";
       "git.autofetch" =  true;
-      "remote.SSH.configFile" = "/home/ecomex/.ssh/vs-code-config";
+      "workbench.colorTheme" = "Atom One Dark";
+      "workbench.iconTheme" = "ayu";
     };
   };
 
