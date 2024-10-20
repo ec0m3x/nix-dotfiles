@@ -30,8 +30,14 @@
     } ];
     defaultGateway = "10.20.50.1";
     nameservers = [ "10.20.50.41" ];
+    firewall.allowedTCPPorts = [ 
+      80
+      8080
+      3000
+      9443
+      11434
+     ];
   };
-
   # Set your time zone.
   time.timeZone = "Europe/Berlin";
 
