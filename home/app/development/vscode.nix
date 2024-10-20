@@ -15,6 +15,7 @@
       "git.autofetch" =  true;
       "workbench.colorTheme" = "Atom One Dark";
       "workbench.iconTheme" = "ayu";
+      "remote.SSH.configFile" = "~/.dotfiles/home/app/development/remote-ssh";
     };
   };
 
