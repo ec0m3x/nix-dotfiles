@@ -2,28 +2,35 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{ config, pkgs, userSettings, ... }:
 
 {
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      ../../system/hardware/nvidia-stable.nix
+      ../../system/hardware/nvidia.nix
       ../../system/vfio/vfio.nix
       ../../system/vfio/guest-agent.nix
      ../../system/server/openssh.nix
      ../../system/server/AI/ollama.nix
      ../../system/server/vscode-server.nix
+     ../../system/server/docker.nix
     ];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "nixos-local-AI";
-
   # Enable networking
-  networking.networkmanager.enable = true;
+  networking = {
+    hostName = "nixos-local-AI";
+    interfaces.eth0.ipv4.addresses = [ {
+      address = "10.20.50.35";
+      prefixLength = 24;
+    } ];
+    defaultGateway = "10.20.50.1";
+    nameservers = [ "10.20.50.41" ];
+  };
 
   # Set your time zone.
   time.timeZone = "Europe/Berlin";
@@ -46,9 +53,9 @@
   # Configure console keymap
   console.keyMap = "de";
 
-  users.users.ecomex = {
+  users.users.${userSettings.username} = {
     isNormalUser = true;
-    description = "ecomex";
+    description = "user";
     initialPassword = "geheim";
     extraGroups = [ "networkmanager" "wheel" "input" "dialout" ];
     packages = with pkgs; [];
