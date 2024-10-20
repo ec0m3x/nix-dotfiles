@@ -7,6 +7,8 @@
 
     stylix.url = "github:danth/stylix";
 
+    vscode-server.url = "github:nix-community/nixos-vscode-server";
+
     nix-darwin.url = "github:LnL7/nix-darwin";
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
 
@@ -17,7 +19,7 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = {self, nix-darwin, nixpkgs, home-manager, ... }@inputs:
+  outputs = {self, nix-darwin, nixpkgs, home-manager, vscode-server, ... }@inputs:
   let
       # --- System Settings --- #
       systemSettings = {
@@ -109,6 +111,7 @@
         system = systemSettings.system;
         modules = [
           ./machines/virtual-machine/configuration.nix
+	  vscode-server.nixosModules.default
           home-manager.nixosModules.home-manager
             {
               home-manager.useGlobalPkgs = true;

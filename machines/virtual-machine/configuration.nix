@@ -11,7 +11,9 @@
       ../../system/hardware/nvidia-stable.nix
       ../../system/vfio/vfio.nix
       ../../system/vfio/guest-agent.nix
-      ../../system/server/openssh.nix
+     ../../system/server/openssh.nix
+     ../../system/server/AI/ollama.nix
+     ../../system/server/vscode-server.nix
     ];
 
   # Bootloader.
