@@ -111,7 +111,7 @@
         system = systemSettings.system;
         modules = [
           ./machines/virtual-machine/configuration.nix
-	  vscode-server.nixosModules.default
+	        vscode-server.nixosModules.default
           home-manager.nixosModules.home-manager
             {
               home-manager.useGlobalPkgs = true;
