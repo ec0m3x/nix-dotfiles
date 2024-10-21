@@ -6,11 +6,12 @@
     gh 
   ];
  
-  #programs.gh.enable = true;
-  #programs.git.enable = true;
-  #programs.git.userName = "ecomex";
-  #programs.git.userEmail = "skoch@sks-concept.de";
-  #programs.git.extraConfig = {
-  #  init.defaultBranch = "main";
-  #};
+  programs.git = {
+    enable = true;
+    userName = "ecomex";
+    userEmail = "skoch@sks-concept.de";
+    extraConfig = {
+      credential.helper = "oauth";
+    };
+  };
 }
