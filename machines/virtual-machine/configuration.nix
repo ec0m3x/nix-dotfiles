@@ -8,8 +8,6 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      ../../system/wm/gnome.nix
-      ../../system/hardware/nvidia.nix
       ../../system/vfio/vfio.nix
       ../../system/vfio/guest-agent.nix
       ../../system/server/openssh.nix
