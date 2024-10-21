@@ -8,13 +8,13 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      ../../system/wm/gnome.nix
       ../../system/hardware/nvidia.nix
       ../../system/vfio/vfio.nix
       ../../system/vfio/guest-agent.nix
-     ../../system/server/openssh.nix
-     ../../system/server/AI/ollama.nix
-     ../../system/server/vscode-server.nix
-     ../../system/server/docker.nix
+      ../../system/server/openssh.nix
+      ../../system/server/vscode-server.nix
+      ../../system/server/docker.nix
     ];
 
   # Bootloader.
@@ -23,9 +23,9 @@
 
   # Enable networking
   networking = {
-    hostName = "nixos-local-AI";
+    hostName = "nixos-vm";
     interfaces.eth0.ipv4.addresses = [ {
-      address = "10.20.50.35";
+      address = "10.20.50.31";
       prefixLength = 24;
     } ];
     defaultGateway = "10.20.50.1";
@@ -33,9 +33,6 @@
     firewall.allowedTCPPorts = [ 
       80
       8080
-      3000
-      9443
-      11434
      ];
   };
   # Set your time zone.
@@ -84,7 +81,7 @@
   ];
 
   environment.sessionVariables = {
-    FLAKE = "/home/ecomex/.dotfiles";
+    FLAKE = "~/.dotfiles";
   };
 
   # I use zsh
