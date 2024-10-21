@@ -1,17 +1,16 @@
 { config, pkgs, ... }:
 
 {
-  home.packages = with pkgs; [ 
-    git
-    gh 
-  ];
  
   programs.git = {
     enable = true;
     userName = "ecomex";
     userEmail = "skoch@sks-concept.de";
-    extraConfig = {
-      credential.helper = "oauth";
+  };
+  programs.gh = {
+    enable = true;
+    settings = {
+      git_protocol = "ssh";
     };
   };
 }
