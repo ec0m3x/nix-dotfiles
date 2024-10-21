@@ -4,6 +4,7 @@
 
   imports =
     [ ../../system/security/tailscale.nix
+      ../../system/wm/fonts.nix
     ];
 
   environment.systemPackages = with pkgs;
@@ -32,7 +33,7 @@
     NSGlobalDomain.KeyRepeat = 1;
   };
 
-  fonts.packages = [ (pkgs.nerdfonts.override { fonts = [ "Meslo" ]; }) ];
+  #fonts.packages = [ (pkgs.nerdfonts.override { fonts = [ "Meslo" ]; }) ];
 
 
 
